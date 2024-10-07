@@ -1,11 +1,16 @@
-import React from 'react'
+"use client"
+import React,{useState} from 'react'
 import SideBar from './_components/SideBar'
 import Header from './_components/Header'
+import { UserCourseListContext } from '../_context/UserCourseListContext'
 
 
 
 function DashboradLayout({children}) {
+
+  const [UserCourseList,setUserCourseList]=useState([]);
   return (
+    <UserCourseListContext.Provider value={{UserCourseList,setUserCourseList}}>
     <div>
         <div className='md:w-64 hidden md:block'>
             <SideBar/>
@@ -19,6 +24,7 @@ function DashboradLayout({children}) {
         </div>
         
         </div>
+        </UserCourseListContext.Provider>
   )
 }
 
