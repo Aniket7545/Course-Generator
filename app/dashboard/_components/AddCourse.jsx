@@ -13,7 +13,7 @@ function AddCourse() {
       <div>
         <h2 className="text-3xl">
           Hello,<span className="font-bold">{user?.fullName}</span>
-          <p className="text-sm text-gray-500">Create new course with AI, Share with friends and Earn from it.</p>
+          <p className="text-sm text-gray-500">Create new course with AI and Share with friends .</p>
         </h2>
       </div>
       <Link href={UserCourseList>=5?'/dashboard/upgrade':'/create-course'}>
