@@ -35,7 +35,7 @@ function CourseBasicInfo({course, refreshData, edit=true}) {
 
   const uploadToS3 = async (file, fileName) => {
     setUploadError(null);
-    setUploadStatus('Starting S3 upload...');
+    //setUploadStatus('Starting S3 upload...');
 
     try {
       // Create file with proper MIME type
