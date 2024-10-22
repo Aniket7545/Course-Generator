@@ -84,8 +84,8 @@ function CourseBasicInfo({course, refreshData, edit=true}) {
         name: error.name,
         stack: error.stack
       });
-      setUploadError(`${error.name}: ${error.message}`);
-      setUploadStatus('Upload failed');
+      //setUploadError(`${error.name}: ${error.message}`);
+      //setUploadStatus('Upload failed');
       throw error;
     }
   };
@@ -95,30 +95,30 @@ function CourseBasicInfo({course, refreshData, edit=true}) {
     if (!file) return;
 
     try {
-      setUploadStatus('Processing file...');
+     // setUploadStatus('Processing file...');
       setSelectedFile(URL.createObjectURL(file));
       
       // Clean filename and add timestamp
       const fileName = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '')}`;
       
       // Upload to S3
-      setUploadStatus('Uploading to S3...');
+      //setUploadStatus('Uploading to S3...');
       const s3Url = await uploadToS3(file, fileName);
       console.log('S3 upload completed:', s3Url);
 
       // Upload to Firebase
-      setUploadStatus('Uploading to Firebase...');
+      //setUploadStatus('Uploading to Firebase...');
       const storageRef = ref(storage, 'ai-course/' + fileName);
       await uploadBytes(storageRef, file);
       const firebaseUrl = await getDownloadURL(storageRef);
       console.log('Firebase upload completed:', firebaseUrl);
       
-      setUploadStatus('All uploads completed successfully!');
+      //setUploadStatus('All uploads completed successfully!');
       if (refreshData) refreshData(true);
     } catch (error) {
       console.error('File upload error:', error);
-      setUploadStatus('Upload failed');
-      setUploadError(error.message);
+      //setUploadStatus('Upload failed');
+      //setUploadError(error.message);
     }
   }
 
