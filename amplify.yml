@@ -8,7 +8,7 @@ frontend:
       commands:
         - npm run build
   artifacts:
-    baseDirectory: .  # Ensure this matches the output directory of your build
+    baseDirectory: .next  # Ensure this matches the output directory of your build
     files:
       - '**/*'
   cache:
