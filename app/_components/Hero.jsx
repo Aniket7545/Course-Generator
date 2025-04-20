@@ -139,7 +139,7 @@ const Hero = () => {
                 />
                 <motion.circle
                   cx="150"
-                  cy="70"
+                  cy="71"
                   r="8"
                   fill="#FDE68A"
                   initial={{ scale: 0 }}
